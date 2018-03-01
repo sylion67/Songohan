@@ -11,7 +11,7 @@ try
 
 	try 
 	{
-		$pdo = new PDO('mysql:dbname=exercice1;host=127.0.0.1', 'root', 'troiswa', $options);
+		$pdo = new PDO('mysql:dbname=restaurant;host=127.0.0.1', 'root', 'troiswa', $options);
 	}
 	catch (PDOException $exception)
 	{

@@ -11,6 +11,7 @@ main{
 
 h1{
 	font-size: 6rem;
+	text-align: center;
 }
 
 h2{
@@ -32,5 +33,9 @@ p{
 small{
 	font-size: 1.3rem;
 }
+
+
+
+
 
 
