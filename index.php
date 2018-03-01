@@ -11,7 +11,11 @@ try
 
 	try 
 	{
+<<<<<<< HEAD
 		$pdo = new PDO('mysql:dbname=restaurant;host=192.168.1.83', 'restaurant', 'restaurant', $options);
+=======
+		$pdo = new PDO('mysql:dbname=restaurant;host=127.0.0.1', 'root', 'troiswa', $options);
+>>>>>>> 61f45944a357f2b71a7721486ea5949ce7438a70
 	}
 	catch (PDOException $exception)
 	{

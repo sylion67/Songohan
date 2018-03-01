@@ -8,9 +8,9 @@ main{
 	margin: 0 auto;
 }
 
-
 h1{
 	font-size: 6rem;
+	text-align: center;
 }
 
 h2{
@@ -40,11 +40,6 @@ p{
 small{
 	font-size: 1.3rem;
 }
-
-
-
-
-
 
 
 
@@ -82,4 +77,19 @@ header {
 
 #logo {
     width: 15%;
+}
+
+
+
+
+
+/*Order*/
+.order input{
+	border-top: 0; 
+	border-left: 0;
+	border-right: 0;
+}
+
+.order input:focus{
+	outline: none;
 }
