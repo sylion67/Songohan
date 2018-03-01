@@ -1,6 +1,39 @@
+html{
+	font-size: 62.5%;
+}
+
+
 main{
 	width: 70%;
-	background-color: tomato;
 	margin: 0 auto;
 }
 
+<<<<<<< HEAD
+=======
+
+h1{
+	font-size: 6rem;
+}
+
+h2{
+	font-size: 5rem;
+}
+
+h3{
+	font-size: 4rem;
+}
+
+h4{
+	font-size: 3rem;
+}
+
+p{
+	font-size: 1.7rem;
+}
+
+small{
+	font-size: 1.3rem;
+}
+
+
+>>>>>>> db1c985db3807f56f036659339dee4be1107fa91

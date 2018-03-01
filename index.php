@@ -58,5 +58,5 @@ try
 catch (Exception $exception)
 {
 	$error = 'Erreur : ' . $exception->getMessage();
-	require('apps/error.php');
+	require('Apps/error.php');
 }
