@@ -11,7 +11,7 @@ try
 
 	try 
 	{
-		$pdo = new PDO('mysql:dbname=restaurant;host=192.168.1.83', 'restaurant', 'restaurant', $options);
+		//$pdo = new PDO('mysql:dbname=restaurant;host=192.168.1.83', 'restaurant', 'restaurant', $options);
 	}
 	catch (PDOException $exception)
 	{
