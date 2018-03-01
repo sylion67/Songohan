@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 01 Mars 2018 à 12:12
+-- Généré le :  Jeu 01 Mars 2018 à 14:53
 -- Version du serveur :  5.7.20-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.22-0ubuntu0.16.04.1
 
@@ -164,17 +164,19 @@ CREATE TABLE `products` (
   `product_title` varchar(254) NOT NULL,
   `product_description` varchar(1023) NOT NULL,
   `price` float NOT NULL,
-  `picture` varchar(254) NOT NULL
+  `picture` varchar(254) NOT NULL,
+  `type` varchar(63) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `products`
 --
 
-INSERT INTO `products` (`product_id`, `product_title`, `product_description`, `price`, `picture`) VALUES
-(1, 'Coca', 'Voici un très bon coca cola qui vous raffraichira lors de vos grands repas japonais', 2, ''),
-(2, 'Riz nature', 'Voici un riz nature que vous pourrez assaisonner de différentes sauce ou encore la manger nature !', 4, ''),
-(3, 'Boule de coco', 'Vous voulez bien finir vos repas ? Voici le dessert parfait qui saura ravir vos papilles.', 1.5, '');
+INSERT INTO `products` (`product_id`, `product_title`, `product_description`, `price`, `picture`, `type`) VALUES
+(1, 'Coca', 'Voici un très bon coca cola qui vous raffraichira lors de vos grands repas japonais', 2, '', 'boisson'),
+(2, 'Riz nature', 'Voici un riz nature que vous pourrez assaisonner de différentes sauce ou encore la manger nature !', 4, '', 'plat'),
+(3, 'Boule de coco', 'Vous voulez bien finir vos repas ? Voici le dessert parfait qui saura ravir vos papilles.', 1.5, '', 'dessert'),
+(4, 'qqchose de bizarre', '/home/was1412/sites/Projet/Apps\r\n/home/was1412/sites/Projet/Models\r\n/home/was1412/sites/Projet/Public\r\n/home/was1412/sites/Projet/Views\r\n/home/was1412/sites/Projet/index.php', 12, '', 'entre');
 
 -- --------------------------------------------------------
 
@@ -277,7 +279,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT pour la table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `reservations`
 --
