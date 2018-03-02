@@ -8,11 +8,9 @@ main{
 	margin: 0 auto;
 }
 
-<<<<<<< HEAD
-=======
-
 h1{
 	font-size: 6rem;
+	text-align: center;
 }
 
 h2{
@@ -27,6 +25,14 @@ h4{
 	font-size: 3rem;
 }
 
+li, h5{
+	font-size: 2rem;
+}
+
+h6{
+  font-size: 1rem;  
+}
+
 p{
 	font-size: 1.7rem;
 }
@@ -36,4 +42,67 @@ small{
 }
 
 
->>>>>>> db1c985db3807f56f036659339dee4be1107fa91
+
+/* NAV */
+
+nav {
+    margin: 0 auto;
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.4rem;
+    margin-top: 2%;
+}
+
+nav a {
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #111;
+}
+
+
+/* HEADER */
+
+header {
+    text-align: center;
+    margin-top: 2%;
+}
+
+#logo {
+    width: 15%;
+}
+
+
+
+
+
+/*Order*/
+.order input{
+	border-top: 0; 
+	border-left: 0;
+	border-right: 0;
+}
+
+.order input:focus{
+	outline: none;
+}
+
+
+/*Footer*/
+
+footer{
+    background-color: #333;
+    color: white;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.7rem;
