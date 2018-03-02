@@ -8,10 +8,10 @@ class ProductsManager
 	{
 		$this->pdo = $pdo;
 	}
-	public function find($id)
+	public function find($product_id)
 	{
-		$query = $this->pdo->prepare("SELECT * FROM products WHERE id=?");
-		$query->execute([$id]);
+		$query = $this->pdo->prepare("SELECT * FROM products WHERE product_id=?");
+		$query->execute([$product_id]);
 		$products = $query->fetchObject('Products',[$this->pdo]);
 		return $products;
 	}
@@ -22,7 +22,7 @@ class ProductsManager
 		return $products;
 	}
 	
-	public function findById($id)
+	public function findById($product_id)
 	{
 		return $this->find($id);
 	}	
@@ -32,19 +32,19 @@ class ProductsManager
 		$query = $this->pdo->prepare("INSERT INTO products (product_title, product_description, price, picture, type) VALUES(?, ?, ?, ?, ?)");
 		$query->execute([$product_title, $product_description, $price, $picture, $type]);
 		$id = $this->pdo->lastInsertId();
-		return $this->find($id);
+		return $this->find($product_id);
 	}
 	public function remove(products $products)
 	{
 		$query = $this->pdo->prepare("DELETE FROM products WHERE id=?");
-		$query->execute([$products->getId()]);
+		$query->execute([$products->getProductId()]);
 
 	}
 	public function save(products $products)
 	{
 		$query = $this->pdo->prepare("UPDATE products SET product_title=?, product_description=?,price=?,  picture=?,type=? WHERE id=?");
 		$query->execute([$products->getProductTitle(), $products->getProductDescription(), $products-> price(), $products->getPicture(), $products->getType(), $products->getId()]);
-		return $this->find($products->getId());
+		return $this->find($products->getProductId());
 	}
 }
 ?>
