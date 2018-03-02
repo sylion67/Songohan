@@ -1,0 +1,13 @@
+/*CSS Jean*/
+
+/*Order*/
+.order input{
+	border-top: 0; 
+	border-left: 0;
+	border-right: 0;
+}
+
+.order input:focus{
+	outline: none;
+}
+

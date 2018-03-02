@@ -1,0 +1,39 @@
+/*CSS Magali */
+
+/* NAV */
+
+nav {
+    margin: 0 auto;
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.4rem;
+    margin-top: 2%;
+}
+
+nav a {
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #111;
+}
+
+
+/* HEADER */
+
+header {
+    text-align: center;
+    margin-top: 2%;
+}
+
+#logo {
+    width: 15%;
+}
+
+
