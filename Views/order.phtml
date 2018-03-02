@@ -5,20 +5,25 @@
 	<form method="post">
 		<p>Nom : <input type="text" name="firstName"></p>
 		<p>Prénom : <input type="text" name="lastName"></p>
+		<p>Email : <input type="email" name="email"></p>
 		<p>Téléphone : <input type="text" name="phone"></p>
 		<p>Adresse : <input type="text" name="address"></p>
 		<p>Ville : <input type="text" name="city"></p>
 		<p>Code postal : <input type="text" name="postalCode"></p>
-		<p>Email : <input type="text" name="email"></p>
-		
+		<p id="choice">Sur place <input type="radio" name="choice" value="spot" class="radio"> - <input type="radio" name="choice" value ="delivery" class="radio">A emporter</p>
+		<p><input type="submit" name="Envoyer"></p>
 	</form>
 </section>
 <?php
-// if () 
-// {
-// 	require('Apps/spot.php');
-// }
-// else
-// {
-// 	require('Apps/delivery.php');
-// }
+/*$choice = $_POST['choice'];
+if ($choice == "spot")
+{
+	require('Apps/spot.php');
+}
+else
+{
+	require('Apps/delivery.php');
+}*/
+
+require('Apps/spot.php');
+?>
