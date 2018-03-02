@@ -4,8 +4,7 @@ class Article
 	private $id;
 	private $title;
 	private $content;
-	private $id_author;
-	private $image;
+	private $Picture;
 	private $date;
 
 	public function __construct($pdo)
@@ -33,34 +32,19 @@ class Article
 	{
 		$this->content = $content;
 	}
-	public function getIdAuthor()
+	
+	public function getPicture()
 	{
-		return $this->id_author;
+		return $this->picture;
 	}
-	public function setIdAuthor($id_author)
+	public function setPicture($picture)
 	{
-		$this->id_author = $id_author;
-	}
-	public function getImage()
-	{
-		return $this->image;
-	}
-	public function setImage($image)
-	{
-		$this->image = $image;
+		$this->picture = $picture;
 	}
 	public function getDate()
 	{
 		return $this->date;
 	}
-	public function getAuthor()
-	{
-		// Récupération du manager qui gère les utilisateurs
-		$manager = new UserManager($this->pdo);
-
-		// On récupère l'utilisateur qui correspond à l'id de l'auteur
-		$user = $manager->findById($this->id_author);
-		return $user;
-	}
+	
 }
 ?>
