@@ -10,7 +10,7 @@
 		<p>Adresse : <input type="text" name="address"></p>
 		<p>Ville : <input type="text" name="city"></p>
 		<p>Code postal : <input type="text" name="postalCode"></p>
-		<p id="choice">Sur place <input type="radio" name="choice" value="spot" class="radio"> - <input type="radio" name="choice" value ="delivery" class="radio">A emporter</p>
+		<p id="choice">Sur place <input type="radio" name="choice" value="spot" class="radio" checked> - <input type="radio" name="choice" value ="delivery" class="radio">A emporter</p>
 		<p><input type="submit" name="Envoyer"></p>
 	</form>
 </section>
@@ -24,6 +24,5 @@ else
 {
 	require('Apps/delivery.php');
 }*/
-
-require('Apps/spot.php');
+require('Apps/spot.php')
 ?>
