@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 01 Mars 2018 à 14:53
+-- Généré le :  Ven 02 Mars 2018 à 16:41
 -- Version du serveur :  5.7.20-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.22-0ubuntu0.16.04.1
 
@@ -30,7 +30,7 @@ CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `login` varchar(127) NOT NULL,
   `password` varchar(127) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `admin`
@@ -51,17 +51,17 @@ CREATE TABLE `article` (
   `id` int(11) NOT NULL,
   `title` varchar(511) NOT NULL,
   `content` varchar(2047) NOT NULL,
-  `id_author` int(11) NOT NULL,
-  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `picture` varchar(254) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `article`
 --
 
-INSERT INTO `article` (`id`, `title`, `content`, `id_author`, `date`) VALUES
-(1, 'Ouverture', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 1, '2018-03-01 10:53:47'),
-(2, 'Fermeture', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 2, '2018-03-01 10:53:47');
+INSERT INTO `article` (`id`, `title`, `content`, `date`, `picture`) VALUES
+(1, 'Ouverture', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2018-03-01 10:53:47', 'Public/img/menu/news.jpg'),
+(2, 'Fermeture', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2018-03-01 10:53:47', 'Public/img/menu/news2.jpg');
 
 -- --------------------------------------------------------
 
@@ -74,7 +74,7 @@ CREATE TABLE `comments` (
   `content` varchar(1023) NOT NULL,
   `id_author` int(11) NOT NULL,
   `rating` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `comments`
@@ -100,7 +100,7 @@ CREATE TABLE `customers` (
   `city` varchar(511) NOT NULL,
   `postalCode` int(11) NOT NULL,
   `email` varchar(254) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `customers`
@@ -118,20 +118,20 @@ INSERT INTO `customers` (`customer_id`, `customer_FirstName`, `customer_LastName
 --
 
 CREATE TABLE `orderdetails` (
+  `id` int(11) NOT NULL,
   `order_Number` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `quantity_Ordered` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `orderdetails`
 --
 
-INSERT INTO `orderdetails` (`order_Number`, `product_id`, `quantity_Ordered`) VALUES
-(1, 1, 4),
-(1, 2, 2),
-(1, 3, 2),
-(2, 4, 4);
+INSERT INTO `orderdetails` (`id`, `order_Number`, `product_id`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -143,7 +143,7 @@ CREATE TABLE `orders` (
   `order_Number` int(11) NOT NULL,
   `order_Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `customer_id` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `orders`
@@ -166,7 +166,7 @@ CREATE TABLE `products` (
   `price` float NOT NULL,
   `picture` varchar(254) NOT NULL,
   `type` varchar(63) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `products`
@@ -189,7 +189,7 @@ CREATE TABLE `reservations` (
   `customer_id` int(11) NOT NULL,
   `reservation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `client_Number` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `reservations`
@@ -227,6 +227,14 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`customer_id`);
+
+--
+-- Index pour la table `orderdetails`
+--
+ALTER TABLE `orderdetails`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `order_Number` (`order_Number`),
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Index pour la table `orders`
@@ -270,6 +278,11 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `customers`
   MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `orderdetails`
+--
+ALTER TABLE `orderdetails`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `orders`
 --
