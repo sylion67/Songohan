@@ -11,3 +11,22 @@
 	outline: none;
 }
 
+#choice{
+	text-align: center;
+	font-size: 2rem;
+	word-spacing: 0.5rem;
+}
+
+.radio{
+	margin: 2%;
+}
+
+/*Spot */
+
+.spot h2{
+	text-align: center;
+}
+
+.btn-active{
+	background-color: tomato;
+}
