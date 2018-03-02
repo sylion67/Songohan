@@ -6,13 +6,12 @@ if (isset($_POST['action']))
 	if ($action == 'create')
 	{
 		if (isset($_POST['title'], $_POST['content'], $_POST['date'],
-			$_POST['image'] $_SESSION['id']))
+			$_POST['image'] ))
 		{
 			$title = $_POST['title'];
 			$content = $_POST['content'];
 			$date = $_POST['date'];
 			$image = $_POST['image'];
-			$auteur = $_SESSION['id'];
 			$article = $manager->create($title, $content, $date, $image);
 			// $sql = "INSERT INTO articles (title, content, image, author) VALUES('".$title."', '".$content."', '".$image."', '".$author."')";
 			// mysqli_query($db, $sql);
@@ -23,7 +22,7 @@ if (isset($_POST['action']))
 	else if ($action == 'edit')
 	{
 		if (isset($_POST['title'], $_POST['content'],$_POST['date'],
-			$_POST['image'] $_SESSION['id']))
+			$_POST['image'] ))
 		{
 			$title = $_POST['title'];
 			$content = $_POST['content'];
