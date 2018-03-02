@@ -1,14 +1,117 @@
 /* CSS Kadija */
 
 /*Footer*/
+a{
+	text-decoration: none;
+}
 
+.footer-user section{
+
+	text-align: center;
+}
+
+.footer-user p{
+
+
+}
 footer{
     background-color: #333;
     color: white;
+    display: flex;
+	flex-direction:row;
+	align-items:flex-start;
+	align-content:stretch;
+	justify-content: space-around;
+	padding: 10px
 }
 
-footer a{
+.footer-user a{
     text-decoration: none;
     color: white;
     font-size: 1.7rem;
+    display: flex;
+
 }
+
+
+
+
+/*informations*/
+
+span{
+
+font-style: italic;
+
+}
+
+#information h1{
+
+	font-size: 6rem;
+	text-align: center;
+	color: #363636;
+	font-style: italic;
+}
+
+#information p{
+
+	text-align: center;
+}
+
+#information div{
+
+	text-align: center;
+	border-style: ridge;
+	border-radius: 30px;
+	padding:10px;
+	background-color: #D2D1CF;
+}
+
+#information h2{
+	font-size: 4rem;
+	text-align: center;
+	color: #363636;
+	font-style: italic;
+}
+
+
+#information section{
+	
+	font-size: 4em;
+	display: flex;
+	flex-direction:row;
+	align-items:flex-start;
+	align-content:stretch;
+	justify-content: space-around;
+	padding: 10px;
+
+}
+
+
+#information ul{
+	list-style-type: none;
+	margin:10px;
+	padding: 0;
+}
+
+.fa-facebook-square{
+	color: #3D5A95;
+
+}
+
+.fa-twitter-square{
+color:#009FEE;
+}
+
+.fa-instagram{
+
+	   display: inline-block;
+
+  text-align: center;
+  border-radius: 3px;
+  color: #fff;
+  vertical-align: middle;
+  background: #d6249f;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+}
+
