@@ -30,3 +30,47 @@
 .btn-active{
 	background-color: tomato;
 }
+
+/*Delivery*/
+
+.little-menu ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.little-menu ul li {
+    display: flex;
+    /*flex: 1 calc (100%/2);*/
+     flex-basis: 10%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.little-menu .menu-delivery img {
+	width: 95%;
+	margin: 0 auto;
+}
+
+.little-menu  ul li {
+    min-height: 0;
+    min-width: 0;
+}
+.little-menu .menu-delivery h5 {
+    margin-bottom: 4%;
+    text-align: center;
+}
+
+.little-menu .menu-delivery .price {
+    text-align: center;
+}
+
+.little-menu .food-delivery h3 {
+    text-align: center;
+}
+
+.little-menu .food-delivery small {
+    text-align: justify;
+}
