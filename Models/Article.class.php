@@ -4,7 +4,7 @@ class Article
 	private $id;
 	private $title;
 	private $content;
-	private $Picture;
+	private $picture;
 	private $date;
 
 	public function __construct($pdo)
