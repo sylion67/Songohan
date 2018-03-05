@@ -50,11 +50,12 @@ class OrderManager
 		$query = $this->pdo->prepare("UPDATE orders SET order_number=?, order_date=?, customer_id=? WHERE order_number=?");
 		$query->execute([$order->getOrderNumber(), $order->getOrderDate(), $order->getCustomerId()]);
 		$products = $order->getProducts();
-		$query = $this->pdo->prepare("DELETE FROM orderdetails")
+		$query = $this->pdo->prepare("DELETE FROM orderdetails WHERE order_number=?");
+		$query->prepare([$order->getOrderNumber()])
+		$query = $this->pdo->prepare("INSERT INTO orderdetails (order_Number, products_id) VALUES(?, ?)");
 		while ()
 		{
-			$query = $this->pdo->prepare("INSERT INTO orderdetails (order_Number, products_id) VALUES(?, ?)");
-			$query->execute([$order->getOrderNumber(), $order->getProducts()->getProductId()]);
+			$query->execute([$order->getOrderNumber(), $products->getProducts()->getProductId()]);
 		}
 		return $this->find($order->getOrderNumber());
 	}
