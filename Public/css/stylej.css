@@ -43,7 +43,7 @@
 .little-menu ul li {
     display: flex;
     /*flex: 1 calc (100%/2);*/
-     flex-basis: 10%;
+     flex-basis: 24%;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
