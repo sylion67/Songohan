@@ -1,5 +1,23 @@
 <section class="create">
-	<form>
-		
-	</form>
+
+    <h3>Création d'article</h3>
+    <div id="create">
+        <form method="POST">
+            <input type="hidden" name="group" value="article">
+            <input type="hidden" name="action" value="create">
+            <div>
+                <input style="padding-left:10px" type="text" name="title" placeholder="Titre">
+            </div>
+            <div>
+                <textarea name="content" placeholder="Contenu"></textarea>
+            </div>
+            <div>
+                <input style="padding-left:10px" type="url" name="image">
+            </div>
+            <div>
+                <input class="edition" type="submit" value="Créer Article">
+            </div>
+
+        </form>
+    </div>
 </section>

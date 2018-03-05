@@ -130,14 +130,18 @@ header {
 
 
 
+/* LOGIN */
 
+.login input{
+	border-top: 0; 
+	border-left: 0;
+	border-right: 0;
+    box-shadow: 0 0 0px 1000px white inset;
+}
 
-
-
-
-
-
-
+.login {
+    text-align: center;
+}
 
 
 
