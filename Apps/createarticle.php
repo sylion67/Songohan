@@ -1,2 +1,2 @@
 <?php
-require('Views/createarticle.php');
+require('Views/createarticle.phtml');

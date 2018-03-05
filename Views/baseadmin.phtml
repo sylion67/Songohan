@@ -10,9 +10,15 @@
 </head>
 <body class="body-admin">
 <?php
-	require('Apps/headeradmin.php');
-	require('Apps/contentadmin.php');
-	require('Apps/footeradmin.php');
+	if (isset($_SESSION['id'])) {
+		require('Apps/headeradmin.php');
+		require('Apps/contentadmin.php');
+		require('Apps/footeradmin.php');
+	}
+	else{
+		require ('Apps/login.php');
+	}
+	
 ?>
 </body>
 </html>
