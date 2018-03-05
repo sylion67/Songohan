@@ -5,7 +5,7 @@
 
 /* NAV */
 
-.header-user nav {
+.header-user nav, .header-admin nav {
     margin: 0 auto;
     list-style-type: none;
     overflow: hidden;
@@ -17,14 +17,14 @@
     margin-bottom: 5%;
 }
 
-.header-user nav a {
+.header-user nav a, .header-admin nav a {
     display: block;
     color: white;
     padding: 14px 16px;
     text-decoration: none;
 }
 
-.header-user nav a:hover {
+.header-user nav a:hover, .header-admin nav a:hover {
     background-color: #111;
 }
 

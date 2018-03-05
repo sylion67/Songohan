@@ -21,8 +21,10 @@ try
 
 	$error = '';
 	$page = 'home';
+	$page_admin = 'orders';
 
-	$access =['home', 'article', 'menu', 'resumeorder', 'order', 'informations', 'createarticle', 'listearticle', 'orders', 'editmenu', 'error', 'articleadmin', 'orderdetail', 'modifymenu', 'resadetail'];
+	$access =['home', 'article', 'menu', 'resumeorder', 'order', 'informations', 'error', 'login'];
+	$access_admin =['createarticle', 'listearticle', 'orders', 'editmenu', 'error', 'articleadmin', 'orderdetail', 'resadetail', 'createadmin', 'logout'];
 	if (isset($_GET['page']))
 	{
 		// Si jamais la page se trouve dans la liste des pages
@@ -30,6 +32,13 @@ try
 		if (in_array($_GET['page'], $access))
 		{
 			$page = $_GET['page'];
+		}
+		else if (isset($_SESSION['id']))
+		{
+			if (in_array($_GET['page'], $access_admin))
+			{
+				$page_admin = $_GET['page'];
+			}
 		}
 		else // La page ne se trouve pas dans la liste des pages du site
 		{
@@ -53,6 +62,7 @@ try
 	require('Apps/traitement/order.php');
 	require('Apps/traitement/user.php');
 	require('Apps/traitement/menu.php');
+	require('Apps/traitement/admin.php');
 
 	require('Apps/base.php');
 }
