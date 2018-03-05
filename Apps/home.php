@@ -1,1 +1,4 @@
-<?php require('Views/home.phtml') ?>
+<?php
+require('Apps/testorder.php');
+require('Views/home.phtml');
+?>

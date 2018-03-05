@@ -25,7 +25,14 @@ class ProductsManager
 	public function findById($product_id)
 	{
 		return $this->find($id);
-	}	
+	}
+	public function findByOrder(Order $order)
+	{
+		$query = $this->pdo->prepare("SELECT products.* FROM products LEFT JOIN orderdetails ON orderdetails.product_id=products.product_id WHERE orderdetails.order_Number=?");
+		$query->execute([$order->getOrderNumber()]);
+		$products = $query->fetchAll(PDO::FETCH_CLASS, 'Products',[$this->pdo]);
+		return $products;
+	}
 
 
 	public function create($product_title, $product_description, $price, $picture, $type)

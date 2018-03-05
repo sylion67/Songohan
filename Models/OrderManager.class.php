@@ -15,6 +15,11 @@ class OrderManager
 		return $orders;
 	}
 
+	public function find($id)
+	{
+		return $this->findByOrderNumber($id);
+	}
+
 	public function findByOrderNumber($order_Number)
 	{
 		$query = $this->pdo->prepare("SELECT * FROM orders WHERE order_Number=?");
@@ -40,11 +45,18 @@ class OrderManager
 		return $this->findByOrderNumber($order_Number);
 	}
 
-	/*public function save(Order $order)// <= type hinting
+	public function save(Order $order)// <= type hinting
 	{
-		$query = $this->pdo->prepare("UPDATE orders SET order_number=?, order_date=?, customer_id=?, note=? WHERE id=?");
+		$query = $this->pdo->prepare("UPDATE orders SET order_number=?, order_date=?, customer_id=? WHERE order_number=?");
 		$query->execute([$order->getOrderNumber(), $order->getOrderDate(), $order->getCustomerId()]);
-		return $this->find($order->getId());*/
+		$products = $order->getProducts();
+		$query = $this->pdo->prepare("DELETE FROM orderdetails")
+		while ()
+		{
+			$query = $this->pdo->prepare("INSERT INTO orderdetails (order_Number, products_id) VALUES(?, ?)");
+			$query->execute([$order->getOrderNumber(), $order->getProducts()->getProductId()]);
+		}
+		return $this->find($order->getOrderNumber());
 	}
 
 }
