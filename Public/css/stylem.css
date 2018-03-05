@@ -144,7 +144,12 @@ header {
 }
 
 
+/* CREATE ARTICLE */
 
+.create textarea {
+    width: 700px;
+    height: 200px;
+}
 
 
 
