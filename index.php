@@ -23,7 +23,7 @@ try
 	$page = 'home';
 	$page_admin = 'orders';
 
-	$access =['home', 'article', 'menu', 'resumeorder', 'order', 'informations', 'error', 'login'];
+	$access =['home', 'article', 'menu', 'resumeorder', 'order', 'informations', 'error', 'login', 'testorder'];
 	$access_admin =['createarticle', 'listearticle', 'orders', 'editmenu', 'error', 'articleadmin', 'orderdetail', 'resadetail', 'createadmin', 'logout'];
 	if (isset($_GET['page']))
 	{

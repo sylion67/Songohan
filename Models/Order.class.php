@@ -14,6 +14,8 @@ class Order
 	{
 		$this->pdo = $pdo;
 	}
+    
+    
 
 	public function getOrderNumber()
 	{

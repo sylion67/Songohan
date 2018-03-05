@@ -1,3 +1,18 @@
-<section class="order-liste">
-	
-</section>
+<table>
+   <?php
+    foreach ($orders as $ligne): ?>
+    <tr>
+        <td>
+            <a href="?page=orderdetail&id=<?= $ligne->getOrderNumber() ?>">
+                <?= $ligne->getOrderNumber() ?>
+            </a>
+        </td>
+        <td>
+            <?= $ligne->getOrderDate() ?>
+        </td>
+        <td>
+            <?= $ligne->getCustomer()->getCustomerFirstName() ?>
+        </td>
+    </tr>
+    <?php endforeach ?>
+</table>
