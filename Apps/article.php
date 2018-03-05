@@ -1,10 +1,7 @@
 <?php
-/*$id = $_GET['id'];*/
+	$id = $_GET['id'];
 	$manager = new ArticleManager($pdo);
-	$article = $manager->findById('1');
-	var_dump($article);
-	//$sql = "SELECT * FROM `articles` WHERE id=".$id;
-	//$res = mysqli_query($db, $sql);
+	$article = $manager->findById($id);
 	if ($article)
 	{
 		require('Views/article.phtml');

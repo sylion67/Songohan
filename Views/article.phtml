@@ -1,15 +1,13 @@
 <article class="big-article">
 
-	<article>
 
-	<h1>Actualités</h1>
 
 	<h2><?= htmlentities($article->getTitle())?></h2>
 
 	
 	
 
-	<p><?= nl2br(htmlentities($article->getContent()))?></p>
+	<p><?= nl2br($article->getContent())?></p>
 
 
 

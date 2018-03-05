@@ -4,7 +4,7 @@ $order = $manager->find(1);
 /*var_dump($order);
 echo "<hr>";*/
 $products = $order->getProducts();
-var_dump($products);
+//var_dump($products);
 /*echo $products[0]->getPrice();
 echo "<hr>";
 $customer = $order->getCustomer();

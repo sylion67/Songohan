@@ -1,21 +1,8 @@
-<article class="little-article">
+<section class="little-article">
 
-<section id="container">
-<article>
-	<img src="./Public/img/menu/news2.jpg">
-    <h4>Titre</h4>
-	<small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat animi, magni excepturi veritatis architecto, quisquam suscipit vero quidem possimus voluptatibus odit? Maxime necessitatibus optio nostrum, ex minus earum dolore sed.</small>
+	<img src="<?=$article->getPicture()?>">
+    <h4><?=$article->getTitle()?></h4>
+	<p><?=substr($article->getContent(),0, 200)?></p>
 	<br>
-	<a href="#>">Lire la suite</a>
-</article>
-
-<article>
-	<img src="./Public/img/menu/news.jpg">
-    <h4>Titre</h4>
-	<small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat animi, magni excepturi veritatis architecto, quisquam suscipit vero quidem possimus voluptatibus odit? Maxime necessitatibus optio nostrum, ex minus earum dolore sed.</small>
-	<br>
-	<a href="#>">Lire la suite</a>
-</article>
+	<a href="?page=article&id=<?=$article->getId()?>">Lire la suite</a>
 </section>
-
-</article>

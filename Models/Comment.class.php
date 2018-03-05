@@ -6,7 +6,6 @@ class Comment
 	private $id;// private = protégé de l'extérieur => encapsulation
 	private $author;
 	private $content;
-	private $date;
 	private $rating;
 
 	// Méthodes (fonctions)
@@ -28,22 +27,16 @@ class Comment
 
 	public function getAuthor()
 	{
-		return $this->id_author;
+		return $this->author;
 	}
 	public function setAuthor($author)
 	{
 		$this->author = $author;
 	}
 
-
-	public function getDate()
-	{
-		return $this->date;
-	}
-
 	public function getRating()
 	{
-		return $this->id_author;
+		return $this->rating;
 	}
 	public function setRating($rating)
 	{

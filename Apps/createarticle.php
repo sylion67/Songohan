@@ -1,4 +1,5 @@
 <?php
+
 require('Views/createarticle.phtml');
 
 /*if (isset($_SESSION['id']))

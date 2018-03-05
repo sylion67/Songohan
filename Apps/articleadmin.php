@@ -1,2 +1,5 @@
 <?php
-require('Views/articleadmin.phtml')
+$id=$_GET['id'];
+$manager = new ArticleManager($pdo);
+$article=$manager->findById($id);
+require('Views/articleadmin.phtml');

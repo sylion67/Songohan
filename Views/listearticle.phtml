@@ -1,3 +1,16 @@
 <section class="liste-article">
-	
+    <table>
+        <thead>
+            <th>Titre</th>
+            <th>Contenu</th>
+        </thead>
+        <tbody>
+            <?php foreach ($articles AS $ligne): ?>
+                <tr>
+                    <td><a href="index.php?page=articleadmin&id=<?= $ligne->getId()?>"><?= $ligne->getTitle() ?></a></td>
+                    <td><?= htmlentities(substr($ligne->getContent(), 0, 110)) ?></td>
+                </tr>
+            <?php endforeach ?>
+        </tbody>
+    </table>
 </section>

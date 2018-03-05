@@ -4,13 +4,18 @@
 	        <th>Quantité</th>
 	        <th>Produit</th>
 	        <th>Prix unitaire</th>
+	        <th>Prix total</th>
 	    </thead>
 	    <tbody>
+	        	<?php foreach ($products as $ligne): ?>
 	        <tr>
-	            <td></td>
-	            <td></td>
-	            <td></td>
+
+	            <td><?=$qte ?></td>
+	            <td><?= $ligne->getProductTitle()?></td>
+	            <td><?= $ligne->getPrice()?></td>
+	            <td><?=($ligne->getPrice())*$qte ?></td>
 	        </tr>
+	        <?php endforeach ?>
 	    </tbody>
 	</table>
 </section>

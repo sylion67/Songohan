@@ -2,7 +2,7 @@
 class Article
 {
 	private $id;
-	private $title;
+	private $title; 
 	private $content;
 	private $picture;
 	private $date;

@@ -18,7 +18,7 @@ class CommentManager
 
 	public function findAll()
 	{
-		$query = $this->pdo->query("SELECT * FROM comments ORDER BY date DESC");
+		$query = $this->pdo->query("SELECT * FROM comments");
 		$comments = $query->fetchAll(PDO::FETCH_CLASS, 'Comment');
 		return $comments;
 	}
@@ -37,7 +37,7 @@ class CommentManager
 	}
 
 
-	public function create($content, $id_author, $id_article)
+	public function create($content, $author, $rating)
 	{
 		$query = $this->pdo->prepare("INSERT INTO comments (content, author, rating) VALUES(?, ?, ?)");
 		$query->execute([$content, $author, $rating]);

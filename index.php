@@ -6,25 +6,26 @@ try
 
 	// Tableau de configuration de PDO
 	$options = [
-		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 	];
 
 	try 
 	{
-		$pdo = new PDO('mysql:dbname=restaurant;host=192.168.1.83', 'restaurant', 'restaurant', $options);
+		$pdo = new PDO('mysql:dbname=restaurant;host=localhost', 'root', 'root', $options);
+		//$pdo = new PDO('mysql:dbname=restaurant;host=192.168.1.83', 'restaurant', 'restaurant', $options);
 	}
 	catch (PDOException $exception)
 	{
 		// Si une PDO exception est attrapée
 		exit('Erreur serveur : ' . $exception->getMessage());
 	}
-
+	$pdo->query("SET NAMES UTF8");
 	$error = '';
 	$page = 'home';
 	$page_admin = 'orders';
 
-	$access =['home', 'article', 'menu', 'resumeorder', 'order', 'informations', 'error', 'login', 'testorder'];
-	$access_admin =['createarticle', 'listearticle', 'orders', 'editmenu', 'error', 'articleadmin', 'orderdetail', 'resadetail', 'createadmin', 'logout'];
+	$access =['home', 'article', 'articles', 'comments', 'menu', 'resumeorder', 'order', 'informations', 'error', 'login', 'testorder', 'createadmin'];
+	$access_admin =['createarticle', 'listearticle', 'orders', 'editmenu', 'error', 'articleadmin', 'orderdetail', 'resadetail', 'createadmin', 'logout', 'editarticle'];
 	if (isset($_GET['page']))
 	{
 		// Si jamais la page se trouve dans la liste des pages

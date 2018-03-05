@@ -1,23 +1,5 @@
 <article class="comment">
-
-<section id="container">
-	<fieldset>
-	<article>
-	<h5>Avis</h5>
-	<p><strong>Author</strong></p>
-	<small>Lorem ipsum dolor sit amet. Praesentium odio ea, placeat adipisci ducimus id amet? Nostrum odit, enim ducimus corporis placeat eius mollitia, facilis alias fuga velit quod veniam.</small>
-	</article>
-	
-	<article>
-	<p><strong>Author</strong></p>
-	<small>Lorem ipsum dolor sit amet. Praesentium odio ea, placeat adipisci ducimus id amet? Nostrum odit, enim ducimus corporis placeat eius mollitia, facilis alias fuga velit quod veniam.</small>
-	</article>
-	
-	<article>
-	<p><strong>Author</strong></p>
-	<small>Lorem ipsum dolor sit amet. Praesentium odio ea, placeat adipisci ducimus id amet? Nostrum odit, enim ducimus corporis placeat eius mollitia, facilis alias fuga velit quod veniam.</small>
-	</article>
-	</fieldset>
-</section>
-
+	<p><strong><?=$comment->getAuthor()?></strong></p>
+	<small><?=$comment->getContent()?></small>
+	<p>Note : <?=$comment->getRating()?>/5</p>
 </article>

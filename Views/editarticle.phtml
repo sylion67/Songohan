@@ -1,0 +1,12 @@
+<section class="edit-article">
+    <form method="POST">
+        <input type="hidden" name="action" value="edit">
+        <input type="hidden" name="id" value="<?=$article->getId()?>">
+
+        <p>Titre <input type="text" name="title" value="<?=$article->getTitle()?>"></p>
+        <p>Contenu <textarea name="content"><?=$article->getContent()?></textarea></p>
+        <p>Image <input type="file" name="picture" value="<?=$article->getPicture()?>"></p>
+
+        <input type="submit" value="Modifier">
+    </form>
+</section>

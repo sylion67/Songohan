@@ -148,6 +148,7 @@ header {
 .create textarea {
     width: 700px;
     height: 200px;
+    resize: none;
 }
 
 
