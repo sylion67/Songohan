@@ -8,22 +8,22 @@ class ReservationsManager
 		$this->pdo = $pdo;
 	}
     
-	public function find($id)
+	public function find($reservation_id)
 	{
 		$query = $this->pdo->prepare("SELECT * FROM reservations WHERE id=?");
 		$query->execute([$id]);
-		$article = $query->fetchObject('reservations', [$this->pdo]);
+		$reservations = $query->fetchObject('reservations', [$this->pdo]);
 		return $reservations;
 	}
 
     public function findAll()
 	{
 		$query = $this->pdo->query("SELECT * FROM reservations");
-		$article = $query->fetchAll(PDO::FETCH_CLASS, 'reservations', [$this->pdo]);
+		$reservations = $query->fetchAll(PDO::FETCH_CLASS, 'reservations', [$this->pdo]);
 		return $reservations;
 	}
 
-	public function findById($id)
+	public function findById($reservation_id)
 	{
 		return $this->find($id);
 	}
@@ -33,20 +33,20 @@ class ReservationsManager
 		$query = $this->pdo->prepare("INSERT INTO article (reservation_id, customer_id, reservation_date, client_number) VALUES(?, ?, ?, ?)");
 		$query->execute([$reservation_id, $customer_id, $reservation_date, $client_number]);
 		$id = $this->pdo->lastInsertId();
-		return $this->find($id);
+		return $this->find($reservation_id);
 	}
     
 	public function remove(reservations $reservations)
 	{
-		$query = $this->pdo->prepare("DELETE FROM reservations WHERE id=?");
+		$query = $this->pdo->prepare("DELETE FROM reservations WHERE reservation_id=?");
 		$query->execute([$reservations->getId()]);
 	}
     
 	public function save(reservations $reservations)
 	{
-		$query = $this->pdo->prepare("UPDATE reservations SET reservation_id=?, customer_id=?, reservation_date=?, client_number WHERE id=?");
-		$query->execute([$reservation_id->getReservation_Id(), $customer_id->getCustomer_Id(), $reservation_date->getReservation_Date, $client_number->getClient_Number()]);
-		return $this->find($reservations->getId());
+		$query = $this->pdo->prepare("UPDATE reservations SET reservation_id=?, customer_id=?, reservation_date=?, client_number WHERE reservation_id=?");
+		$query->execute([$reservation_id->getReservation_Id(), $customer_id->getCustomer_Id(), $reservation_date->getReservation_Date(), $client_number->getClient_Number()]);
+		return $this->find($reservations->getReservation_Id());
 	}
 }
 ?>

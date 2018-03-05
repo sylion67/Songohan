@@ -23,6 +23,8 @@ class OrderManager
 		return $order;
 	}
 
+	//Create, remove, save
+
 
 	public function remove(Order $order)// <= type hinting
 	{
@@ -44,5 +46,6 @@ class OrderManager
 		$query->execute([$order->getOrderNumber(), $order->getOrderDate(), $order->getCustomerId()]);
 		return $this->find($order->getId());*/
 	}
+
 }
 ?>

@@ -21,7 +21,7 @@ try
 
 	$error = '';
 	$page = 'home';
-	$access =['home', 'article', 'menu', 'resumeorder', 'order', 'informations', 'createarticle', 'listearticle', 'orders', 'editmenu', 'error', 'articleadmin', 'orderdetail'];
+	$access =['home', 'article', 'menu', 'resumeorder', 'order', 'informations', 'createarticle', 'listearticle', 'orders', 'editmenu', 'error', 'articleadmin', 'orderdetail', 'modifymenu', 'resadetail'];
 	if (isset($_GET['page']))
 	{
 		// Si jamais la page se trouve dans la liste des pages

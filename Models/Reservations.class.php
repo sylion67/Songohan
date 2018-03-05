@@ -14,15 +14,15 @@ class Reservations
 
 	public function getReservation_Id()
 	{
-		return $this->id;
+		return $this->reservation_id;
 	}
     
     public function getCustomer_Id()
 	{
-		return $this->id;
+		return $this->customer_id;
 	}
     
-	public function getReservation_Date($reservation_date)
+	public function getReservation_Date()
 	{
 		return $this->reservation_date;
 	}
@@ -31,7 +31,7 @@ class Reservations
 		$this->reservation_date = $reservation_date;
 	}
     
-    public function getClient_Number($client_number)
+    public function getClient_Number()
 	{
 		return $this->client_number;
 	}
