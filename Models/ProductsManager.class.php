@@ -26,6 +26,8 @@ class ProductsManager
 	{
 		return $this->find($id);
 	}	
+
+
 	public function create($product_title, $product_description, $price, $picture, $type)
 	{
 		// var_dump($title);
@@ -42,8 +44,8 @@ class ProductsManager
 	}
 	public function save(products $products)
 	{
-		$query = $this->pdo->prepare("UPDATE products SET product_title=?, product_description=?,price=?,  picture=?,type=? WHERE id=?");
-		$query->execute([$products->getProductTitle(), $products->getProductDescription(), $products-> price(), $products->getPicture(), $products->getType(), $products->getId()]);
+		$query = $this->pdo->prepare("UPDATE products SET product_title=?, product_description=?,price=?, picture=?, type=? WHERE id=?");
+		$query->execute([$products->getProductTitle(), $products->getProductDescription(), $products-> price(), $products->getPicture(), $products->getType(), $products->getProductId()]);
 		return $this->find($products->getProductId());
 	}
 }

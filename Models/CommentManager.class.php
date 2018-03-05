@@ -24,24 +24,6 @@ class CommentManager
 	}
 
 
-	public function findByIdArticle($id)
-	{
-		$query = $this->pdo->prepare("SELECT * FROM comments WHERE id_article=? ORDER BY date DESC");
-		$query->execute([$id]);
-		$comments = $query->fetchAll(PDO::FETCH_CLASS, 'Comment');
-		return $comments;
-	}
-
-
-	public function findByIdAuthor($id)
-	{
-		$query = $this->pdo->prepare("SELECT * FROM comments WHERE id_author=?");
-		$query->execute([$id]);
-		$comments = $query->fetchAll(PDO::FETCH_CLASS, 'Comment');
-		return $comments;
-	}
-
-
 	public function findById($id)
 	{
 		return $this->find($id);
@@ -57,8 +39,8 @@ class CommentManager
 
 	public function create($content, $id_author, $id_article)
 	{
-		$query = $this->pdo->prepare("INSERT INTO comments (content, id_author, id_article) VALUES(?, ?, ?)");
-		$query->execute([$content, $id_author, $id_article]);
+		$query = $this->pdo->prepare("INSERT INTO comments (content, author, rating) VALUES(?, ?, ?)");
+		$query->execute([$content, $author, $rating]);
 		$id = $this->pdo->lastInsertId();
 		return $this->find($id);
 	}
