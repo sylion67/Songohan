@@ -34,6 +34,14 @@ class ProductsManager
 		return $products;
 	}
 
+	public function countByOrder(Order $order)
+	{
+		$query = $this->pdo->prepare("SELECT products.*, COUNT(products.product_id) AS qte FROM products LEFT JOIN orderdetails ON orderdetails.product_id=products.product_id WHERE orderdetails.order_Number=? GROUP BY products.product_id");
+		$query->execute([$order->getOrderNumber()]);
+		$products = $query->fetchAll(PDO::FETCH_CLASS, 'Products', [$this->pdo]);
+		return $products;
+	}
+
 
 	public function create($product_title, $product_description, $price, $picture, $type)
 	{

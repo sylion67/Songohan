@@ -5,11 +5,12 @@ if (isset($_POST['action']))
 	$action = $_POST['action'];
 	if ($action == 'create')
 	{
-		if (isset($_POST['title'], $_POST['content'],$_POST['picture'] ))
+		if (isset($_POST['title'], $_POST['content']))
 		{
 			$title = $_POST['title'];
 			$content = $_POST['content'];
-			$picture = $_POST['picture'];
+			$uploaddir = 'Public/img/menu/';
+			$picture = $uploaddir.($_POST['picture']);
 			$article = $manager->create($title, $content, $picture);
 			// $sql = "INSERT INTO articles (title, content, picture, author) VALUES('".$title."', '".$content."', '".$picture."', '".$author."')";
 			// mysqli_query($db, $sql);
@@ -23,7 +24,8 @@ if (isset($_POST['action']))
 		{
 			$title = $_POST['title'];
 			$content = $_POST['content'];
-			$picture = $_POST['picture'];
+			$uploaddir = 'Public/img/menu/';
+			$picture = $uploaddir.($_POST['picture']);
 			$id = $_POST['id'];
 			$article = $manager->find($id);
 			$article->setTitle($title);

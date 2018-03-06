@@ -23,6 +23,7 @@ class OrderManager
 	public function findByOrderNumber($order_Number)
 	{
 		$query = $this->pdo->prepare("SELECT * FROM orders WHERE order_Number=?");
+		//$query = $this->pdo->prepare("SELECT COUNT(product_id) AS qte, product_id FROM orderdetails WHERE order_Number=? GROUP BY product_id");
 		$query->execute([$order_Number]);
 		$order = $query->fetchObject('Order', [$this->pdo]);
 		return $order;

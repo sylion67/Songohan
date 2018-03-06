@@ -7,17 +7,27 @@
 	        <th>Prix total</th>
 	    </thead>
 	    <tbody>
-	        	<?php foreach ($products as $ligne): ?>
+	        <?php foreach ($products as $ligne): ?>
 	        <tr>
 
-	            <td><?=$qte ?></td>
+	            <td><?=$ligne->qte ?></td>
 	            <td><?= $ligne->getProductTitle()?></td>
 	            <td><?= $ligne->getPrice()?></td>
-	            <td><?=($ligne->getPrice())*$qte ?></td>
+	            <td><?=($ligne->getPrice())*$ligne->qte ?></td>
 	        </tr>
 	        <?php endforeach ?>
 	    </tbody>
 	</table>
+
+	<section class="recap-order">
+		<h3>Prix total</h3>
+		<p><?php 
+			$total=0;
+			foreach($products AS $product)
+				$total=$total+($product->getPrice())*($product->qte);
+		?><?=$total?>
+		</p>
+	</section>
 </section>
 
 <!--requete SQL Count-->
