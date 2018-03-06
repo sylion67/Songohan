@@ -3,7 +3,7 @@ if (isset($_POST['action']))
 {
 	$manager = new OrderManager($pdo);
 	$action = $_POST['action'];
-	if ($action == 'create')
+	if ($action == 'order.create')
 	{
 		if (isset($_POST['customer_id']))
 		{
@@ -15,7 +15,7 @@ if (isset($_POST['action']))
 			exit;
 		}
 	}
-	else if ($action == 'edit')
+	else if ($action == 'order.edit')
 	{
 		if (isset($_POST['customer_id'] ))
 		{
@@ -29,7 +29,7 @@ if (isset($_POST['action']))
 			exit;
 		}
 	}
-	else if ($action == 'delete')
+	else if ($action == 'order.delete')
 	{
 		if (isset($_POST['id']))
 		{

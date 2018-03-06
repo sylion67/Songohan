@@ -3,13 +3,14 @@ if (isset($_POST['action']))
 {
 	$manager = new ArticleManager($pdo);
 	$action = $_POST['action'];
-	if ($action == 'create')
+	$uploaddir = 'Public/img/menu/';
+	if ($action == 'article.create')
 	{
 		if (isset($_POST['title'], $_POST['content']))
 		{
 			$title = $_POST['title'];
 			$content = $_POST['content'];
-			$uploaddir = 'Public/img/menu/';
+			
 			$picture = $uploaddir.($_POST['picture']);
 			$article = $manager->create($title, $content, $picture);
 			// $sql = "INSERT INTO articles (title, content, picture, author) VALUES('".$title."', '".$content."', '".$picture."', '".$author."')";
@@ -18,7 +19,7 @@ if (isset($_POST['action']))
 			exit;
 		}
 	}
-	else if ($action == 'edit')
+	else if ($action == 'article.edit')
 	{
 		if (isset($_POST['title'], $_POST['content'], $_POST['picture'] ))
 		{
@@ -38,7 +39,7 @@ if (isset($_POST['action']))
 			exit;
 		}
 	}
-	else if ($action == 'delete')
+	else if ($action == 'article.delete')
 	{
 		if (isset($_POST['id']))
 		{

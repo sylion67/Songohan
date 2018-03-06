@@ -49,7 +49,7 @@ class ProductsManager
 		$query = $this->pdo->prepare("INSERT INTO products (product_title, product_description, price, picture, type) VALUES(?, ?, ?, ?, ?)");
 		$query->execute([$product_title, $product_description, $price, $picture, $type]);
 		$id = $this->pdo->lastInsertId();
-		return $this->find($product_id);
+		return $this->findAll();
 	}
 	public function remove(products $products)
 	{
