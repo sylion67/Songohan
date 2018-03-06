@@ -37,7 +37,7 @@ class OrderManager
 		$query->execute([$order->getOrderNumber()]);
 	}
 
-	public function create($customer_id)
+	public function create($customer)
 	{
 		$query = $this->pdo->prepare("INSERT INTO orders (order_number, order_Date, customer_id) VALUES(?, ?, ?)");
 		$query->execute([$customer_id]);
