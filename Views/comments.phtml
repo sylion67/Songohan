@@ -1,5 +1,7 @@
 <article class="comment">
-	<p><strong><?=$comment->getAuthor()?></strong></p>
-	<small><?=$comment->getContent()?></small>
-	<p>Note : <?=$comment->getRating()?>/5</p>
+	<?php foreach ($comments AS $comment): ?>
+		<p><strong><?=$comment->getAuthor()?></strong></p>
+		<small><?=$comment->getContent()?></small>
+		<p>Note : <?=$comment->getRating()?>/5</p>
+	<?php endforeach ?>
 </article>
