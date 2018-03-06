@@ -31,6 +31,7 @@ class Comment
 	}
 	public function setAuthor($author)
 	{
+
 		$this->author = $author;
 	}
 
@@ -40,6 +41,8 @@ class Comment
 	}
 	public function setRating($rating)
 	{
+		if ($rating < 0)
+			throw new Exception("La note ne peut pas être inférieure à 0");
 		$this->rating = $rating;
 	}
 }

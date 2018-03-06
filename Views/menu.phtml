@@ -1,14 +1,14 @@
 <section class="liste-menu">
     <section class="food">
         
-        
-    <ul class="menu entre">
+   
     <h3>Entrées</h3>
+    <ul class="menu entre">
     <?php 
     foreach ($products as $product) {
          if(($product->getType())=="entre")
         { ?>
-    <ul>
+    
             <li>
                 <img src="<?=$product->getPicture()?>">
             <h5><?=$product->getProductTitle()?></h5>
@@ -17,18 +17,17 @@
                 <p><strong><?=$product->getPrice()?></strong></p>
             </section>
             </li>
-</ul>
         <?php };
         }?>
+        
     </ul>
 
-    <ul class="menu plat">
     <h3>Plat</h3>
+    <ul class="menu plat">
     <?php 
     foreach ($products as $product) {
          if(($product->getType())=="plat")
         { ?>
- <ul>
             <li>
                 <img src="<?=$product->getPicture()?>">
             <h5><?=$product->getProductTitle()?></h5>
@@ -37,18 +36,16 @@
                 <p><strong><?=$product->getPrice()?></strong></p>
             </section>
             </li>
-</ul>
         <?php };
         }?>
     </ul>
 
-    <ul class="menu dessert">
     <h3>Dessert</h3>
+    <ul class="menu dessert">
     <?php 
     foreach ($products as $product) {
          if(($product->getType())=="dessert")
         { ?>
-        <ul>
             <li>
 
                 <img src="<?=$product->getPicture()?>">
@@ -58,18 +55,16 @@
                 <p><strong><?=$product->getPrice()?></strong></p>
             </section>
             </li>
-        </ul>
         <?php };
         }?>
     </ul>
 
-    <ul class="menu boisson">
     <h3>Boissons</h3>
+    <ul class="menu boisson">
     <?php 
     foreach ($products as $product) {
          if(($product->getType())=="boisson")
         { ?>
-         <ul>
             <li>
                 <img src="<?=$product->getPicture()?>">
             <h5><?=$product->getProductTitle()?></h5>
@@ -78,7 +73,6 @@
                 <p><strong><?=$product->getPrice()?></strong></p>
             </section>
             </li>
-        </ul>
         <?php };
         }?>
     </ul>

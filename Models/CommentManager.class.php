@@ -39,8 +39,12 @@ class CommentManager
 
 	public function create($content, $author, $rating)
 	{
+		$comment = new Comment($this->pdo);
+		$comment->setContent($content);
+		$comment->setAuthor($author);
+		$comment->setRating($rating);
 		$query = $this->pdo->prepare("INSERT INTO comments (content, author, rating) VALUES(?, ?, ?)");
-		$query->execute([$content, $author, $rating]);
+		$query->execute([$comment->getContent(), $comment->getAuthor(), $comment->getRating()]);
 		$id = $this->pdo->lastInsertId();
 		return $this->find($id);
 	}
