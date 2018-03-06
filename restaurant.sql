@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 02 Mars 2018 à 16:41
+-- Généré le :  Mar 06 Mars 2018 à 16:36
 -- Version du serveur :  5.7.20-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.22-0ubuntu0.16.04.1
 
@@ -37,9 +37,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `login`, `password`) VALUES
-(1, 'Sangoku', 'admin'),
-(2, 'Bulma', 'admin'),
-(3, 'Chichi', 'admin');
+(5, 'login', '$2y$11$TZvyPtU53Xr/.DfTRjcFYO2RRO9zHQGJJgjsFtr4MlaV4ZH2OmS6S');
 
 -- --------------------------------------------------------
 
@@ -60,8 +58,9 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`id`, `title`, `content`, `date`, `picture`) VALUES
-(1, 'Ouverture', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2018-03-01 10:53:47', 'Public/img/menu/news.jpg'),
-(2, 'Fermeture', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2018-03-01 10:53:47', 'Public/img/menu/news2.jpg');
+(1, 'Ouverture', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.   <a href="?page=order">Commander</a>', '2018-03-01 10:53:47', 'Public/img/menu/news.jpg'),
+(2, 'Fermeture', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2018-03-01 10:53:47', 'Public/img/menu/news2.jpg'),
+(9, 'Bateauuuuuu', 'Un bon bateau de sushi, voilà voilà', '2018-03-06 13:43:19', 'Public/img/menu/plat4.jpg');
 
 -- --------------------------------------------------------
 
@@ -72,7 +71,7 @@ INSERT INTO `article` (`id`, `title`, `content`, `date`, `picture`) VALUES
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
   `content` varchar(1023) NOT NULL,
-  `id_author` int(11) NOT NULL,
+  `author` varchar(254) NOT NULL,
   `rating` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -80,10 +79,10 @@ CREATE TABLE `comments` (
 -- Contenu de la table `comments`
 --
 
-INSERT INTO `comments` (`id`, `content`, `id_author`, `rating`) VALUES
-(1, 'Super restaurant ! Je le conseille !', 1, 4),
-(2, 'Plutôt bof. Service assez long, beaucoup de choses à améliorer', 2, 2),
-(3, 'Je suis fan, j\'y retournerais dés que possible !! <3', 3, 5);
+INSERT INTO `comments` (`id`, `content`, `author`, `rating`) VALUES
+(1, 'Super restaurant ! Je le conseille !', 'Samira', 4),
+(2, 'Plutôt bof. Service assez long, beaucoup de choses à améliorer', 'Pascal', 2),
+(3, 'Je suis fan, j\'y retournerais dés que possible !! <3', 'Samad', 5);
 
 -- --------------------------------------------------------
 
@@ -131,7 +130,10 @@ INSERT INTO `orderdetails` (`id`, `order_Number`, `product_id`) VALUES
 (1, 1, 1),
 (2, 1, 2),
 (3, 1, 3),
-(4, 2, 4);
+(4, 2, 4),
+(5, 1, 1),
+(6, 1, 2),
+(7, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -173,10 +175,19 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_title`, `product_description`, `price`, `picture`, `type`) VALUES
-(1, 'Coca', 'Voici un très bon coca cola qui vous raffraichira lors de vos grands repas japonais', 2, '', 'boisson'),
-(2, 'Riz nature', 'Voici un riz nature que vous pourrez assaisonner de différentes sauce ou encore la manger nature !', 4, '', 'plat'),
-(3, 'Boule de coco', 'Vous voulez bien finir vos repas ? Voici le dessert parfait qui saura ravir vos papilles.', 1.5, '', 'dessert'),
-(4, 'qqchose de bizarre', '/home/was1412/sites/Projet/Apps\r\n/home/was1412/sites/Projet/Models\r\n/home/was1412/sites/Projet/Public\r\n/home/was1412/sites/Projet/Views\r\n/home/was1412/sites/Projet/index.php', 12, '', 'entre');
+(1, 'Coca', 'Coca cola la boisson qui vous raffraichira lors de vos grands repas japonais', 2, 'Public/img/menu/coca.jpg', 'boisson'),
+(2, 'Pizza', 'Pizza fromages avec son fromage mousseux.', 4, 'Public/img/menu/plat3.jpg', 'plat'),
+(3, 'Boule de coco', 'Vous voulez bien finir vos repas ? Voici le dessert parfait qui saura ravir vos papilles.', 1.5, 'Public/img/menu/plat1.jpg', 'dessert'),
+(4, 'Salade composé', 'Délicieuse salade composé, excellent mélange,  assaisonné avec une vinaigrette classique.', 12, 'Public/img/menu/entree2.jpg', 'entre'),
+(5, 'Yakitori', 'Délicieux plat à base de crevette accompagner de sa boule de cristal farcie à la viande Hachée que sa sauce à la tomate fraiche', 10, 'Public/img/menu/plat2.jpg', 'plat'),
+(6, 'Super salade', 'Super salade de rouleaux de printemps enroulé dans une galette fine de riz aux sept boules de cristal.', 12, 'Public/img/menu/entree3.jpg', 'entre'),
+(7, 'Bouboule de glaçe', 'Un bon dessert à base de meringue et glaçe à la vanille', 9, 'Public/img/menu/dessert3.jpg', 'dessert'),
+(8, 'Boisson énergétique', 'Boisson énergétique Japonaise, au goût pouvant se définir comme une sorte de saveur d\'orange.', 5, 'Public/img/menu/dbz.jpg', 'boisson'),
+(9, 'Café', 'Café léger avec son nuage de crème, soupoudrer de cacao. ', 5, 'Public/img/menu/boisson.jpg', 'boisson'),
+(10, 'Dessert dans les nuages', 'Dessert aux fruits avec son nuage flottant.', 12, 'Public/img/menu/dessert1.jpg', 'dessert'),
+(11, 'Bao farcie à la châtaigne', 'Délicieux pain moelleux farcie aux chataignes.', 12, 'Public/img/menu/entree1.jpg', 'entre'),
+(12, 'Bateauuuuuu', 'Voilà un beau bateau', 40, 'Public/img/menu/plat4.jpg', 'plat'),
+(13, 'Test', 'Test', 20, 'Public/img/menu/dessert3.jpg', 'plat');
 
 -- --------------------------------------------------------
 
@@ -187,18 +198,19 @@ INSERT INTO `products` (`product_id`, `product_title`, `product_description`, `p
 CREATE TABLE `reservations` (
   `reservation_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
-  `reservation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `client_Number` int(11) NOT NULL
+  `reservation_date` varchar(63) NOT NULL,
+  `reservation_hour` varchar(63) NOT NULL,
+  `client_number` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `reservations`
 --
 
-INSERT INTO `reservations` (`reservation_id`, `customer_id`, `reservation_date`, `client_Number`) VALUES
-(1, 1, '2018-02-28 19:31:50', 4),
-(2, 2, '2018-02-28 19:31:50', 6),
-(3, 3, '2018-02-28 19:32:04', 2);
+INSERT INTO `reservations` (`reservation_id`, `customer_id`, `reservation_date`, `reservation_hour`, `client_number`) VALUES
+(1, 1, '02/03/2018', '18:30', 4),
+(2, 2, '12/03/2018', '19:30', 6),
+(3, 3, '22/03/2018', '21:00', 2);
 
 --
 -- Index pour les tables exportées
@@ -262,12 +274,12 @@ ALTER TABLE `reservations`
 -- AUTO_INCREMENT pour la table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `comments`
 --
@@ -282,7 +294,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT pour la table `orderdetails`
 --
 ALTER TABLE `orderdetails`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `orders`
 --
@@ -292,7 +304,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT pour la table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT pour la table `reservations`
 --
