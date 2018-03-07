@@ -1,3 +1,22 @@
 <section class="resadetail">
-	
+	<table>
+	    <thead>
+	        <th>Numéro</th>
+	        <th>Nom</th>
+	        <th>Date</th>
+	        <th>Heure</th>
+	        <th>Nombre de personnes</th>
+	    </thead>
+	    <tbody>
+	        <?php foreach ($reservations as $ligne): ?>
+	        <tr>
+	            <td><?= $ligne->getReservation_Id()?></td>
+	            <td><?= $ligne->getCustomer()->getCustomerFirstName()?></td>
+	            <td><?= $ligne->getReservation_Date()?></td>
+                <td><?= $ligne->getReservation_Hour()?></td>
+                <td><?= $ligne->getClient_Number()?></td>
+	        </tr>
+	        <?php endforeach ?>
+	    </tbody>
+	</table>
 </section>

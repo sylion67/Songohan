@@ -12,14 +12,14 @@ class ReservationsManager
 	{
 		$query = $this->pdo->prepare("SELECT * FROM reservations WHERE id=?");
 		$query->execute([$id]);
-		$reservations = $query->fetchObject('reservations', [$this->pdo]);
+		$reservations = $query->fetchObject('Reservations', [$this->pdo]);
 		return $reservations;
 	}
 
     public function findAll()
 	{
 		$query = $this->pdo->query("SELECT * FROM reservations");
-		$reservations = $query->fetchAll(PDO::FETCH_CLASS, 'reservations', [$this->pdo]);
+		$reservations = $query->fetchAll(PDO::FETCH_CLASS, 'Reservations', [$this->pdo]);
 		return $reservations;
 	}
 
@@ -28,10 +28,10 @@ class ReservationsManager
 		return $this->find($id);
 	}
     
-	public function create($reservation_id, $customer_id, $reservation_date, $client_number)
+	public function create($reservation_id, $customer_id, $reservation_date, $reservation_hour, $client_number)
 	{
-		$query = $this->pdo->prepare("INSERT INTO article (reservation_id, customer_id, reservation_date, client_number) VALUES(?, ?, ?, ?)");
-		$query->execute([$reservation_id, $customer_id, $reservation_date, $client_number]);
+		$query = $this->pdo->prepare("INSERT INTO article (reservation_id, customer_id, reservation_date, reservation_hour, client_number) VALUES(?, ?, ?, ?)");
+		$query->execute([$reservation_id, $customer_id, $reservation_date, $reservation_hour, $client_number]);
 		$id = $this->pdo->lastInsertId();
 		return $this->find($reservation_id);
 	}
@@ -44,8 +44,8 @@ class ReservationsManager
     
 	public function save(reservations $reservations)
 	{
-		$query = $this->pdo->prepare("UPDATE reservations SET reservation_id=?, customer_id=?, reservation_date=?, client_number WHERE reservation_id=?");
-		$query->execute([$reservation_id->getReservation_Id(), $customer_id->getCustomer_Id(), $reservation_date->getReservation_Date(), $client_number->getClient_Number()]);
+		$query = $this->pdo->prepare("UPDATE reservations SET reservation_id=?, customer_id=?, reservation_date=?, reservation_hour=?, client_number WHERE reservation_id=?");
+		$query->execute([$reservation_id->getReservation_Id(), $customer_id->getCustomer_Id(), $reservation_date->getReservation_Date(), $reservation_hour->getReservationDate(), $client_number->getClient_Number()]);
 		return $this->find($reservations->getReservation_Id());
 	}
 }

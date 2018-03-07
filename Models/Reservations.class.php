@@ -4,7 +4,9 @@ class Reservations
 	private $reservation_id;
 	private $customer_id;
 	private $reservation_date;
-	private $client_Number;
+    private $reservation_hour;
+	private $client_number;
+    private $customer;
 
 
 	public function __construct($pdo)
@@ -31,6 +33,15 @@ class Reservations
 		$this->reservation_date = $reservation_date;
 	}
     
+    	public function getReservation_Hour()
+	{
+		return $this->reservation_hour;
+	}
+	public function setreservation_hour($reservation_hour)
+	{
+		$this->reservation_hour = $reservation_hour;
+	}
+    
     public function getClient_Number()
 	{
 		return $this->client_number;
@@ -39,6 +50,24 @@ class Reservations
 	{
 		$this->client_number = $client_number;
 	}
+    
+    public function getCustomer()
+	{
+		$manager = new CustomerManager($this->pdo);
+		$this->customer = $manager->find($this->customer_id);
+		return $this->customer;
+	}
+
+	/*public function setCustomerId($customer_id)
+	{
+		$this->customer_id = $customer_id;
+	}*/
+	public function setCustomer(Customer $customer)
+	{
+		$this->customer_id = $customer->getId();
+		$this->customer = $customer;
+	}
+    
 }
 ?>
 
