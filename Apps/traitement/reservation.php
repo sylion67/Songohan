@@ -1,5 +1,4 @@
 <?php
-var_dump($_POST);
 if (isset($_POST['action']))
 {
 	$manager_resa = new ReservationsManager($pdo);
@@ -19,13 +18,10 @@ if (isset($_POST['action']))
 			$hour = $_POST['hour'];
 			$nbClient = $_POST['nbClient'];
 
-			$postalCode = '1324';
-
 			$manager_cus = new CustomerManager($pdo);
 			$customer = $manager_cus->create($firstName, $lastName, $phone, $address, $city, $postalCode, $email);
 			$reservation = $manager_resa->create($customer, $date, $hour, $nbClient);
-			//header('Location: index.php?page=articleadmin&id='.$reversation->getId());
-			var_dump($reservation);
+			header('Location: index.php?page=articleadmin&id='.$reversation->getId());
 			exit;
 		}
 	}
