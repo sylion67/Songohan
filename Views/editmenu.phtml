@@ -1,126 +1,30 @@
-<section class="editmenu">
-
-    <section class="food">
-
-
-        <ul class="menu entre">
-            <h3>Entrées</h3>
-            <?php 
-        foreach ($products as $product) {
-        if(($product->getType())=="entre")
-        { ?>
-            <ul>
-                <li>
-                    <img src="<?=$product->getPicture()?>">
-                    <h5><?=$product->getProductTitle()?></h5>
-                    <small><?=$product->getProductDescription()?></small>
-                    <section class="price">
-                        <p><strong><?=$product->getPrice()?></strong></p>
-                    </section>
-                    <div><input class="edition" type="submit" value="Modifier"></div>
-                </li>
-            </ul>
-            <?php };
-        }?>
-        </ul>
-
-
-
-        <ul class="menu plat">
-            <h3>Plat</h3>
-            <?php 
-        foreach ($products as $product) {
-        if(($product->getType())=="plat")
-        { ?>
-            <ul>
-                <li>
-                    <img src="<?=$product->getPicture()?>">
-                    <h5><?=$product->getProductTitle()?></h5>
-                    <small><?=$product->getProductDescription()?></small>
-                    <section class="price">
-                        <p><strong><?=$product->getPrice()?></strong></p>
-                    </section>
-                    <div><input class="edition" type="submit" value="Modifier"></div>
-                </li>
-            </ul>
-            <?php };
-        }?>
-        </ul>
-
-
-
-        <ul class="menu dessert">
-            <h3>Dessert</h3>
-            <?php 
-        foreach ($products as $product) {
-        if(($product->getType())=="dessert")
-        { ?>
-            <ul>
-                <li>
-                    <img src="<?=$product->getPicture()?>">
-                    <h5><?=$product->getProductTitle()?></h5>
-                    <small><?=$product->getProductDescription()?></small>
-                    <section class="price">
-                        <p><strong><?=$product->getPrice()?></strong></p>
-                    </section>
-                    <div><input class="edition" type="submit" value="Modifier"></div>
-                </li>
-            </ul>
-            <?php };
-        }?>
-        </ul>
-
-
-
-        <ul class="menu boisson">
-            <h3>Boissons</h3>
-            <?php 
-        foreach ($products as $product) {
-        if(($product->getType())=="boisson")
-        { ?>
-            <ul>
-                <li>
-                    <img src="<?=$product->getPicture()?>">
-                    <h5><?=$product->getProductTitle()?></h5>
-                    <small><?=$product->getProductDescription()?></small>
-                    <section class="price">
-                        <p><strong><?=$product->getPrice()?></strong></p>
-                    </section>
-                    <div><input class="edition" type="submit" value="Modifier"></div>
-                </li>
-            </ul>
-            <?php };
-        }?>
-        </ul>
-    </section>
-</section>
-
-
-
-<h4>Edition menu</h4>
+<h4>Édition menu</h4>
 
 <form method="POST">
-    <input type="hidden" name="action" value="menu.create">
-    <div>
-        <p>Nom du produit :<input style="padding-left:10px" type="text" name="product_title" placeholder="Titre"></p>
+    <input type="hidden" name="action" value="product.edit">
+    <input type="hidden" name="product_id" value="<?=$product->getProductId()?>">
+    <div> 
+        <p>Nom du produit :<input style="padding-left:10px" type="text" name="product_title" 
+        value="<?=$product->getProductTitle()?>" placeholder="Titre"></p>
     </div><br>
     <div>
-        <p>Description :<textarea name="product_description" placeholder="Contenu"></textarea></p>
+        <p>Description :<textarea name="product_description" placeholder="Contenu"><?=$product->getProductDescription()?></textarea></p>
     </div><br>
     <div>
-        <p>Image :<input style="padding-left:10px" type="file" name="picture"></p>
+        <p>Image :<input style="padding-left:10px" type="file" name="picture" value="">
+        <img src="<?=$product->getPicture()?>"></p>
     </div><br>
     <div>
-        <p>Prix :<input style="padding-left:10px" type="text" name="price"></p>
+        <p>Prix :<input style="padding-left:10px" type="text" name="price" value="<?=$product->getPrice()?>"></p>
     </div><br>
     <div>
-        <p>Entrée : <input type="radio" name="type" value="entre" checked></p>
-        <p>Plat : <input type="radio" name="type" value="plat"></p>
-        <p>Dessert : <input type="radio" name="type" value="dessert"></p>
-        <p>Boisson : <input type="radio" name="type" value="boisson"></p>
+        <p>Entrée : <input type="radio" name="type" value="entre" <?=$product->getType() == "entre" ? "checked" : "";?>></p>
+        <p>Plat : <input type="radio" <?=$product->getType() == "plat" ? "checked" : "";?> name="type" value="plat"></p>
+        <p>Dessert : <input type="radio" <?=$product->getType() == "dessert" ? "checked" : "";?> name="type" value="dessert"></p>
+        <p>Boisson : <input <?=$product->getType() == "boisson" ? "checked" : "";?> type="radio" name="type" value="boisson"></p>
     </div>
     <div>
-        <p><input class="edition" type="submit" value="Créer Produit"></p>
+        <p><input class="edition" type="submit" value="Modifier Produit"></p>
     </div>
 </form>
 

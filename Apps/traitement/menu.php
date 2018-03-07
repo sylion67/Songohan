@@ -10,8 +10,8 @@ if (isset($_POST['action']))
 		{
             $product_title = $_POST['product_title'];
             $product_description = $_POST['product_description'];
-            $picture = $uploaddir.$_POST['picture'];
             $price = $_POST['price'];
+            $picture = $uploaddir.$_POST['picture'];
             $type = $_POST['type'];
             $products = $manager->create($product_title, $product_description, $price, $picture, $type);
             var_dump($products);

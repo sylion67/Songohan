@@ -1,0 +1,120 @@
+<section class="editmenu">
+
+    <section class="food">
+
+
+        <h3>Entrées</h3>
+        <ul class="menu entre">
+            <?php 
+        foreach ($products as $product) {
+        if(($product->getType())=="entre")
+        { ?>
+            <li>
+                <img src="<?=$product->getPicture()?>">
+                <h5>
+                    <?=$product->getProductTitle()?>
+                </h5>
+                <small><?=$product->getProductDescription()?></small>
+                <section class="price">
+                    <p><strong><?=$product->getPrice()?></strong></p>
+                </section>
+                <div><a href="index.php?page=editmenu&id=<?=$product->getProductId()?>">Modifier</a></div>
+                <form method="POST">
+                    <input type="hidden" name="action" value="menu.delete">
+                    <input type="hidden" name="id" value="<?=$product->getProductId()?>">
+                    <input type="submit" value="Supprimer">
+                </form>
+            </li>
+            <?php };
+        }?>
+        </ul>
+
+
+
+        <h3>Plat</h3>
+        <ul class="menu plat">
+            <?php 
+        foreach ($products as $product) {
+        if(($product->getType())=="plat")
+        { ?>
+            <li>
+                <img src="<?=$product->getPicture()?>">
+                <h5>
+                    <?=$product->getProductTitle()?>
+                </h5>
+                <small><?=$product->getProductDescription()?></small>
+                <section class="price">
+                    <p><strong><?=$product->getPrice()?></strong></p>
+                </section>
+                <div><a href="index.php?page=editmenu&id=<?=$product->getProductId()?>">Modifier</a></div>
+                <form method="POST">
+                    <input type="hidden" name="action" value="menu.delete">
+                    <input type="hidden" name="id" value="<?=$product->getProductId()?>">
+                    <input type="submit" value="Supprimer">
+                </form>
+            </li>
+            <?php };
+        }?>
+        </ul>
+
+
+
+        <h3>Dessert</h3>
+        <ul class="menu dessert">
+            <?php 
+        foreach ($products as $product) {
+        if(($product->getType())=="dessert")
+        { ?>
+
+            <li>
+                <img src="<?=$product->getPicture()?>">
+                <h5>
+                    <?=$product->getProductTitle()?>
+                </h5>
+                <small><?=$product->getProductDescription()?></small>
+                <section class="price">
+                    <p><strong><?=$product->getPrice()?></strong></p>
+                </section>
+                <div><a href="index.php?page=editmenu&id=<?=$product->getProductId()?>">Modifier</a></div>
+                <form method="POST">
+                    <input type="hidden" name="action" value="menu.delete">
+                    <input type="hidden" name="id" value="<?=$product->getProductId()?>">
+                    <input type="submit" value="Supprimer">
+                </form>
+            </li>
+
+            <?php };
+        }?>
+        </ul>
+
+
+
+        <h3>Boissons</h3>
+        <ul class="menu boisson">
+            <?php 
+        foreach ($products as $product) {
+        if(($product->getType())=="boisson")
+        { ?>
+
+            <li>
+                <img src="<?=$product->getPicture()?>">
+                <h5>
+                    <?=$product->getProductTitle()?>
+                </h5>
+                <small><?=$product->getProductDescription()?></small>
+                <section class="price">
+                    <p><strong><?=$product->getPrice()?></strong></p>
+                </section>
+                <div><a href="index.php?page=editmenu&id=<?=$product->getProductId()?>">Modifier</a></div>
+                <form method="POST">
+                    <input type="hidden" name="action" value="menu.delete">
+                    <input type="hidden" name="id" value="<?=$product->getProductId()?>">
+                    <input type="submit" value="Supprimer">
+                </form>
+            </li>
+
+            <?php };
+        }?>
+        </ul>
+    </section>
+</section>

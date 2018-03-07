@@ -46,21 +46,27 @@ class ProductsManager
 	public function create($product_title, $product_description, $price, $picture, $type)
 	{
 		// var_dump($title);
+        $product = new Products($this->pdo);
+        $product->setProductTitle($product_title);
+        $product->setProductDescription($product_description);
+        $product->setPrice($price);
+        $product->setPicture($picture);
+        $product->setType($type);
 		$query = $this->pdo->prepare("INSERT INTO products (product_title, product_description, price, picture, type) VALUES(?, ?, ?, ?, ?)");
-		$query->execute([$product_title, $product_description, $price, $picture, $type]);
+		$query->execute([$product->getProductTitle(), $product->getProductDescription(), $product->getPrice(), $product->getPicture(), $product->getType()]);
 		$id = $this->pdo->lastInsertId();
-		return $this->findAll();
+		return $this->find($id);
 	}
 	public function remove(products $products)
 	{
-		$query = $this->pdo->prepare("DELETE FROM products WHERE id=?");
+		$query = $this->pdo->prepare("DELETE FROM products WHERE product_id=?");
 		$query->execute([$products->getProductId()]);
 
 	}
 	public function save(products $products)
 	{
-		$query = $this->pdo->prepare("UPDATE products SET product_title=?, product_description=?,price=?, picture=?, type=? WHERE id=?");
-		$query->execute([$products->getProductTitle(), $products->getProductDescription(), $products-> price(), $products->getPicture(), $products->getType(), $products->getProductId()]);
+		$query = $this->pdo->prepare("UPDATE products SET product_title=?, product_description=?,price=?, picture=?, type=? WHERE product_id=?");
+		$query->execute([$products->getProductTitle(), $products->getProductDescription(), $products->getPrice(), $products->getPicture(), $products->getType(), $products->getProductId()]);
 		return $this->find($products->getProductId());
 	}
 }

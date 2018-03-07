@@ -25,7 +25,7 @@ try
 	$page_admin = 'orders';
 
 	$access =['home', 'article', 'articles', 'comments', 'menu', 'resumeorder', 'order', 'informations', 'error', 'login', 'testorder', 'createadmin'];
-	$access_admin =['createarticle', 'listearticle', 'orders', 'editmenu', 'error', 'articleadmin', 'orderdetail', 'resadetail', 'createadmin', 'logout', 'editarticle'];
+	$access_admin =['createarticle', 'listearticle', 'orders', 'editmenu', 'error', 'articleadmin', 'orderdetail', 'resadetail', 'createadmin', 'logout', 'editarticle', 'createmenu'];
 	if (isset($_GET['page']))
 	{
 		// Si jamais la page se trouve dans la liste des pages
@@ -63,6 +63,7 @@ try
 	require('Apps/traitement/order.php');
 	require('Apps/traitement/user.php');
 	require('Apps/traitement/menu.php');
+	require('Apps/traitement/product.php');
 	require('Apps/traitement/admin.php');
 
 	require('Apps/base.php');

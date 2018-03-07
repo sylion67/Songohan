@@ -1,0 +1,28 @@
+<h4>Création menu</h4>
+
+<form method="POST">
+    <input type="hidden" name="action" value="product.create">
+    <div>
+        <p>Nom du produit :<input style="padding-left:10px" type="text" name="product_title" placeholder="Titre"></p>
+    </div><br>
+    <div>
+        <p>Description :<textarea name="product_description" placeholder="Contenu"></textarea></p>
+    </div><br>
+    <div>
+        <p>Image :<input style="padding-left:10px" type="file" name="picture"></p>
+    </div><br>
+    <div>
+        <p>Prix :<input style="padding-left:10px" type="text" name="price"></p>
+    </div><br>
+    <div>
+        <p>Entrée : <input type="radio" name="type" value="entre" checked></p>
+        <p>Plat : <input type="radio" name="type" value="plat"></p>
+        <p>Dessert : <input type="radio" name="type" value="dessert"></p>
+        <p>Boisson : <input type="radio" name="type" value="boisson"></p>
+    </div>
+    <div>
+        <p><input class="edition" type="submit" value="Créer Produit"></p>
+    </div>
+</form>
+
+

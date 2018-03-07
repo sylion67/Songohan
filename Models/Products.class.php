@@ -35,7 +35,7 @@ class Products
 	}
 	public function setProductDescription($product_description)
 	{
-		$this->product_description = $product_Description;
+		$this->product_description = $product_description;
 	}
 	public function getPrice()
 	{
@@ -43,6 +43,9 @@ class Products
 	}
 	public function setPrice($price)
 	{
+        $price = str_replace(',', '.', $price);
+        $price = str_replace(' ', '', $price);
+        $price = str_replace('€', '', $price);
 		$this->price = $price;
 	}
 	public function getPicture()
@@ -51,7 +54,8 @@ class Products
 	}
 	public function setPicture($picture)
 	{
-		$this->picture = $picture;
+        if ($picture !== '')
+		  $this->picture = 'Public/img/menu/'.$picture;
 	}
 	public function getType()
 	{
