@@ -56,16 +56,17 @@ class CustomerManager
 
 
 
-	public function create($customer_LastName, $password, $email)
+	public function create($firstName, $lastName, $phone, $address, $city, $postalCode, $email)
 	{
-		$customer = new User(/*$this->db*/);
+		/*$customer = new Customer();
 		$customer->setLogin($customer_LastName);
 		$customer->setPassword($password);
-		$customer->setEmail($email);
+		$customer->setEmail($email);*/
 		$query = $this->pdo->prepare("INSERT INTO customers (customer_FirstName, customer_LastName, phone, addressLine, city, postalCode, email) VALUES(?, ?, ?, ?, ?, ?, ?)");
-		$query->execute([$customer->getFirstName(), $customer->getLastName(), $customer->getPhone(), $customer->getAddressLine(), $customer->getCity(), $customer->getPostalCode(), $customer->getEmail()]);
+		//$query->execute([$customer->getFirstName(), $customer->getLastName(), $customer->getPhone(), $customer->getAddressLine(), $customer->getCity(), $customer->getPostalCode(), $customer->getEmail()]);
+		$query->execute([$firstName, $lastName, $phone, $address, $city, $postalCode, $email]);
 		$id = $this->pdo->lastInsertId();
-		return $this->find($customer_id);
+		return $this->find($id);
 	}
 
 	public function remove(User $customer) //<= type hinting

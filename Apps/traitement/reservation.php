@@ -1,22 +1,32 @@
 <?php
+var_dump($_POST);
 if (isset($_POST['action']))
 {
-	$manager = new ReservationsManager($pdo);
+	$manager_resa = new ReservationsManager($pdo);
 	$action = $_POST['action'];
 	if ($action == 'reservation.create')
 	{
-		if (isset($_POST['date'], $_POST['hour'], $_POST['nbClient']))
+		if (isset($_POST['firstName'], $_POST['hour'], $_POST['lastName'], $_POST['email'], $_POST['phone'], $_POST['address'], $_POST['city'], $_POST['postalCode'], $_POST['date'], $_POST['nbClient']))
 		{
-			$reservation_date = $_POST['date'];
-			$reservation_hour = $_POST['hour'];
-			$client_number = $_POST['nbClient'];
-			
-			$reservation = $manager->create($reservation_date, $reservation_hour, $client_number);
-			// $sql = "INSERT INTO articles (title, content, picture, author) VALUES('".$title."', '".$content."', '".$picture."', '".$author."')";
-			// mysqli_query($db, $sql);
-			var_dump($resa);
+			$firstName = $_POST['firstName'];
+			$lastName = $_POST['lastName'];
+			$email = $_POST['email'];
+			$phone = $_POST['phone'];
+			$address = $_POST['address'];
+			$city = $_POST['city'];
+			$postalCode = $_POST['postalCode'];
+			$date = $_POST['date'];
+			$hour = $_POST['hour'];
+			$nbClient = $_POST['nbClient'];
+
+			$postalCode = '1324';
+
+			$manager_cus = new CustomerManager($pdo);
+			$customer = $manager_cus->create($firstName, $lastName, $phone, $address, $city, $postalCode, $email);
+			$reservation = $manager_resa->create($customer, $date, $hour, $nbClient);
 			//header('Location: index.php?page=articleadmin&id='.$reversation->getId());
-			//exit;
+			var_dump($reservation);
+			exit;
 		}
 	}
 	else if ($action == 'reversation.edit')

@@ -38,12 +38,24 @@ class OrderManager
 		$query->execute([$order->getOrderNumber()]);
 	}
 
-	public function create($customer)
+	public function create(Customer $customer, $products)
 	{
-		$query = $this->pdo->prepare("INSERT INTO orders (order_number, order_Date, customer_id) VALUES(?, ?, ?)");
-		$query->execute([$customer_id]);
+		$query = $this->pdo->prepare("INSERT INTO orders (customer_id) VALUES(?)");
+		$query->execute([$customer->getCustomerId()]);
 		$id = $this->pdo->lastInsertId();
-		return $this->findByOrderNumber($order_Number);
+		$query_detail = $this->pdo->prepare("INSERT INTO orderdetails (order_Number, product_id) VALUES(?, ?)");
+		foreach($products AS $product_id => $quantity)
+		{
+			if ($quantity !== '---')
+			{
+				while ($quantity > 0)
+				{
+					$query_detail->execute([$id, $product_id]);
+					$quantity--;
+				}
+			}
+		}
+		return $this->find($id);
 	}
 
 	public function save(Order $order)// <= type hinting

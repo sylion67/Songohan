@@ -6,14 +6,25 @@ if (isset($_POST['action']))
 	if ($action == 'order.create')
 	{
 		var_dump($_POST);
-		if (isset($_POST['customer_id']))
+		if (isset($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['phone'], $_POST['address'], $_POST['city'], $_POST['postalCode'], $_POST['nbProducts']))
 		{
-			$customer = $_POST['customer_id'];
-			//$order = $manager->create($customer);
-			// $sql = "INSERT INTO orders (title, content, picture, author) VALUES('".$title."', '".$content."', '".$picture."', '".$author."')";
-			// mysqli_query($db, $sql);
-			//header('Location: index.php?page=orderadmin&id='.$order->getOrderNumber());
-			//exit;
+			$firstName = $_POST['firstName'];
+			$lastName = $_POST['lastName'];
+			$email = $_POST['email'];
+			$phone = $_POST['phone'];
+			$address = $_POST['address'];
+			$city = $_POST['city'];
+			$postalCode = $_POST['postalCode'];
+			$nbProducts = $_POST['nbProducts'];
+
+			$postalCode = '1234';
+
+			$manager_cus = new CustomerManager($pdo);
+			$customer = $manager_cus->create($firstName, $lastName, $phone, $address, $city, $postalCode, $email);
+			$order = $manager->create($customer, $nbProducts);
+			//header('Location: index.php?page=articleadmin&id='.$reversation->getId());
+			var_dump($order);
+			exit;
 		}
 	}
 	else if ($action == 'order.edit')
