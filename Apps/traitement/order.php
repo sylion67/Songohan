@@ -17,13 +17,11 @@ if (isset($_POST['action']))
 			$postalCode = $_POST['postalCode'];
 			$nbProducts = $_POST['nbProducts'];
 
-			$postalCode = '1234';
 
 			$manager_cus = new CustomerManager($pdo);
 			$customer = $manager_cus->create($firstName, $lastName, $phone, $address, $city, $postalCode, $email);
 			$order = $manager->create($customer, $nbProducts);
-			//header('Location: index.php?page=articleadmin&id='.$reversation->getId());
-			var_dump($order);
+			header('Location: index.php?page=articleadmin&id='.$reversation->getId());
 			exit;
 		}
 	}

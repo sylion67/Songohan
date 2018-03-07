@@ -21,12 +21,12 @@ if (isset($_POST['action']))
 			$hour = $_POST['hour'];
 			$nbClient = $_POST['nbClient'];
 
-			$postalCode = '1324';
-
 			$manager_cus = new CustomerManager($pdo);
 			$customer = $manager_cus->create($firstName, $lastName, $phone, $address, $city, $postalCode, $email);
 			$reservation = $manager_resa->create($customer, $date, $hour, $nbClient);
 			//header('Location: index.php?page=articleadmin&id='.$reversation->getId());
+
+			header('Location: index.php?page=resumeresa&id='.$reversation->getId());
 			exit;
 		}
 	}
