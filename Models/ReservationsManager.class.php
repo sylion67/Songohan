@@ -10,8 +10,8 @@ class ReservationsManager
     
 	public function find($reservation_id)
 	{
-		$query = $this->pdo->prepare("SELECT * FROM reservations WHERE id=?");
-		$query->execute([$id]);
+		$query = $this->pdo->prepare("SELECT * FROM reservations WHERE reservation_id=?");
+		$query->execute([$reservation_id]);
 		$reservations = $query->fetchObject('Reservations', [$this->pdo]);
 		return $reservations;
 	}
@@ -28,12 +28,12 @@ class ReservationsManager
 		return $this->find($id);
 	}
     
-	public function create($reservation_id, $customer_id, $reservation_date, $reservation_hour, $client_number)
+	public function create(Customer $customer, $reservation_date, $reservation_hour, $client_number)
 	{
-		$query = $this->pdo->prepare("INSERT INTO article (reservation_id, customer_id, reservation_date, reservation_hour, client_number) VALUES(?, ?, ?, ?)");
-		$query->execute([$reservation_id, $customer_id, $reservation_date, $reservation_hour, $client_number]);
+		$query = $this->pdo->prepare("INSERT INTO reservations (customer_id, reservation_date, reservation_hour, client_number) VALUES(?, ?, ?, ?)");
+		$query->execute([$customer->getCustomerId(), $reservation_date, $reservation_hour, $client_number]);
 		$id = $this->pdo->lastInsertId();
-		return $this->find($reservation_id);
+		return $this->find($id);
 	}
     
 	public function remove(reservations $reservations)

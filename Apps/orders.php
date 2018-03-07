@@ -7,7 +7,7 @@ $query = $pdo->prepare($sql);
 $query->execute();
 
 $orders = $query->fetchAll();*/
-
+var_dump($orders);
 require('Views/orders.phtml');
 
 

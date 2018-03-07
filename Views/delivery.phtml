@@ -1,15 +1,15 @@
 <section class="delivery">
+	<section class="food">
 	<h1>A emporter</h1>
-	<section class="little-menu">
-		<section class="food">
-        	<ul class="menu entre">
+			<section class="entre">
     			<h3>Entrées</h3>
+	        	<ul class="menu entre">
 			    <?php 
 			    foreach ($products as $product) {
 			        if(($product->getType())=="entre")
 			        { 
 			    ?>
-   				<ul>
+   				
 		            <li>
 		                <img src="<?=$product->getPicture()?>">
 		            <h5><?=$product->getProductTitle()?></h5>
@@ -17,7 +17,7 @@
 		            <section class="price">
 		                <p><strong><?=$product->getPrice()?></strong></p>
 		            </section>
-		            <p>Nombre : <select name="nbProducts">
+		            <p>Nombre : <select name="nbProducts[<?=$product->getProductId()?>]" id="select">
 							        <option>---</option>
 							        <option value="1">1</option>
 							        <option value="2">2</option>
@@ -25,23 +25,22 @@
 							        <option value="4">4</option>
 							        <option value="5">5</option>
 							    </select></p>
-							    <button>Acheter</button>
 		            </li>
-				</ul>
         		<?php 
         			};
        			}
        			?>
-    		</ul>
+    			</ul>
+    		</section>
 
-    		<ul class="menu plat">
-    			<h3>Plats</h3>
+    		<section class="plat">
+    			<h3>Entrées</h3>
+	        	<ul class="menu plat">
 			    <?php 
 			    foreach ($products as $product) {
 			        if(($product->getType())=="plat")
 			        { 
 			    ?>
-   				<ul>
 		            <li>
 		                <img src="<?=$product->getPicture()?>">
 		            <h5><?=$product->getProductTitle()?></h5>
@@ -49,7 +48,7 @@
 		            <section class="price">
 		                <p><strong><?=$product->getPrice()?></strong></p>
 		            </section>
-		            <p>Nombre : <select name="nbProducts">
+		            <p>Nombre : <select name="nbProducts[<?=$product->getProductId()?>]">
 							        <option>---</option>
 							        <option value="1">1</option>
 							        <option value="2">2</option>
@@ -57,23 +56,24 @@
 							        <option value="4">4</option>
 							        <option value="5">5</option>
 							    </select></p>
-							    <button>Acheter</button>
 		            </li>
-				</ul>
+				
         		<?php 
         			};
        			}
        			?>
-    		</ul>
+    			</ul>
+    		</section>
 
-    		<ul class="menu dessert">
-    			<h3>Desserts</h3>
+    		<section class="dessert">
+    			<h3>Entrées</h3>
+	        	<ul class="menu dessert">
 			    <?php 
 			    foreach ($products as $product) {
 			        if(($product->getType())=="dessert")
 			        { 
 			    ?>
-   				<ul>
+   				
 		            <li>
 		                <img src="<?=$product->getPicture()?>">
 		            <h5><?=$product->getProductTitle()?></h5>
@@ -81,7 +81,7 @@
 		            <section class="price">
 		                <p><strong><?=$product->getPrice()?></strong></p>
 		            </section>
-		            <p>Nombre : <select name="nbProducts">
+		            <p>Nombre : <select name="nbProducts[<?=$product->getProductId()?>]">
 							        <option>---</option>
 							        <option value="1">1</option>
 							        <option value="2">2</option>
@@ -89,23 +89,23 @@
 							        <option value="4">4</option>
 							        <option value="5">5</option>
 							    </select></p>
-							    <button>Acheter</button>
 		            </li>
-				</ul>
+				
         		<?php 
         			};
        			}
        			?>
-    		</ul>
+    			</ul>
+    		</section>
 
-    		<ul class="menu boisson">
-    			<h3>Boissons</h3>
+    		<section class="boisson">
+    			<h3>Entrées</h3>
+	        	<ul class="menu boisson">
 			    <?php 
 			    foreach ($products as $product) {
 			        if(($product->getType())=="boisson")
 			        { 
 			    ?>
-   				<ul>
 		            <li>
 		                <img src="<?=$product->getPicture()?>">
 		            <h5><?=$product->getProductTitle()?></h5>
@@ -113,7 +113,7 @@
 		            <section class="price">
 		                <p><strong><?=$product->getPrice()?></strong></p>
 		            </section>
-		            <p>Nombre : <select name="nbProducts">
+		            <p>Nombre : <select name="nbProducts[<?=$product->getProductId()?>]">
 							        <option>---</option>
 							        <option value="1">1</option>
 							        <option value="2">2</option>
@@ -121,14 +121,12 @@
 							        <option value="4">4</option>
 							        <option value="5">5</option>
 							    </select></p>
-							    <button>Acheter</button>
 		            </li>
-				</ul>
         		<?php 
         			};
        			}
        			?>
-    		</ul>
-		</section>
+    			</ul>
+    		</section>
 	</section>
 </section>
