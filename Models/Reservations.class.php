@@ -28,7 +28,7 @@ class Reservations
 	{
 		return $this->reservation_date;
 	}
-	public function setreservation_date($reservation_date)
+	public function setReservation_Date($reservation_date)
 	{
 		$this->reservation_date = $reservation_date;
 	}
@@ -37,7 +37,7 @@ class Reservations
 	{
 		return $this->reservation_hour;
 	}
-	public function setreservation_hour($reservation_hour)
+	public function setReservation_Hour($reservation_hour)
 	{
 		$this->reservation_hour = $reservation_hour;
 	}

@@ -1,8 +1,11 @@
+<form method="post">
+<input type="hidden" name="action" value="" id="js_action">
 <section class='order'>
 	<section class="choix-menu">
 		<h1>Commandez !</h1>
 	</section>
-	<form method="post">
+		
+	
 		<p>Nom : <input type="text" name="firstName"></p>
 		<p>Prénom : <input type="text" name="lastName"></p>
 		<p>Email : <input type="email" name="email"></p>
@@ -10,19 +13,20 @@
 		<p>Adresse : <input type="text" name="address"></p>
 		<p>Ville : <input type="text" name="city"></p>
 		<p>Code postal : <input type="text" name="postalCode"></p>
-		<p id="choice">Sur place <input type="radio" name="choice" value="spot" class="radio" checked> - <input type="radio" name="choice" value ="delivery" class="radio">A emporter</p>
-		<p><input type="submit" name="Envoyer"></p>
-	</form>
+		
+		
+
 </section>
-<?php
-/*$choice = $_POST['choice'];
-if ($choice == "spot")
-{
-	require('Apps/spot.php');
-}
-else
-{
-	require('Apps/delivery.php');
-}*/
-require('Apps/spot.php')
-?>
+<p id="choice">Sur place <input type="radio" name="choice" value="spot" class="radiospot"> - <input type="radio" name="choice" value="delivery" class="radiodel"> A emporter</p>
+	<section class="spotview hidden">
+		<?php
+			require('Apps/spot.php');
+		?>
+	</section>
+	<section class="deliveryview hidden">
+		<?php
+			require('Apps/delivery.php');
+		?>
+	</section>
+<p><input type="submit" name="submit" value="Valider la commande"></p>
+</form>

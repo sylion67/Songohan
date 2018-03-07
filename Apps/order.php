@@ -1,2 +1,3 @@
 <?php
-require('Views/order.phtml');
+
+require('Views/order.phtml');?>

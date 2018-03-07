@@ -74,3 +74,16 @@
 .little-menu .food-delivery small {
     text-align: justify;
 }
+
+
+.hidden{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+.blue{
+    background-color: blue;
+}

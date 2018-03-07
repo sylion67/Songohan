@@ -65,6 +65,8 @@ try
 	require('Apps/traitement/menu.php');
 	require('Apps/traitement/product.php');
 	require('Apps/traitement/admin.php');
+	require('Apps/traitement/reservation.php');
+
 
 	require('Apps/base.php');
 }

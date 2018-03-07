@@ -5,14 +5,15 @@ if (isset($_POST['action']))
 	$action = $_POST['action'];
 	if ($action == 'order.create')
 	{
+		var_dump($_POST);
 		if (isset($_POST['customer_id']))
 		{
 			$customer = $_POST['customer_id'];
-			$order = $manager->create($customer);
+			//$order = $manager->create($customer);
 			// $sql = "INSERT INTO orders (title, content, picture, author) VALUES('".$title."', '".$content."', '".$picture."', '".$author."')";
 			// mysqli_query($db, $sql);
-			header('Location: index.php?page=orderadmin&id='.$order->getOrderNumber());
-			exit;
+			//header('Location: index.php?page=orderadmin&id='.$order->getOrderNumber());
+			//exit;
 		}
 	}
 	else if ($action == 'order.edit')
